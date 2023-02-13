@@ -41,8 +41,8 @@ def choose_character():
 
     character = ""
     while character.lower() != "ninja" or character.lower() != "mage":
+        
         character = input("Who will you join? (Ninja/Mage): ")
-
         if character.lower() == "ninja":
             health += ninja.ninja_health
             magic += ninja.ninja_magic
