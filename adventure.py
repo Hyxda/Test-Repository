@@ -19,11 +19,11 @@ def display_intro():
     to the user & takes no parameters.
     """
     print(
-        """
+    """
     \t \t Welcome to Ninjas vs Mages! \n
     The great war between the ninjas and mages rages on, you must
     choose a side to fight with.
-        """
+    """
     )
 
 # Gets input from user and saves character selection
@@ -72,10 +72,36 @@ def dice_roll():
     two six-sided die. The sum of two die is returned in
     the range of 2 to 12.
     """
-    return random.randint(2, 12)
+    roll = random.randint(2, 12)
+    return roll
+
+# Check if user would like to roll the dice.
+def role_check():
+    win = False
+    roll_check = ""
+    while win == False:
+        roll_check = input("\nWould you like to roll the dice? (Y/N)")
+        if roll_check.lower() == "y":
+            roll_result = dice_roll()
+            if roll_result <= 5:
+                print("\nCritical Loss! The game will now end.")
+                break
+            elif roll_result <= 8:
+                print("\nLoss! The game will now end.")
+                break
+            elif roll_result <= 10:
+                win = True
+                print("\nWin! Moving on to next challenge.")
+            elif roll_result <= 12:
+                win = True
+                print("\nUltra Win! Moving on to next challenge.")
+            return roll_result
+        elif roll_check.lower() == "n":
+            print("\nThe game will now end. See you next time!")
 
 # Function calls
 display_intro()
 sleep()
 choose_character()
 sleep()
+role_check()
