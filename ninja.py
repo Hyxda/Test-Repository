@@ -6,4 +6,8 @@ ninja_intelligence = 1
 
 # Function that initializes ninja character
 def ninja():
+    """
+    This function does not intake parameters, simply
+    returns the string "ninja" for validation.
+    """
     return "ninja"

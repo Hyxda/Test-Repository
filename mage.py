@@ -6,4 +6,8 @@ mage_intelligence = 1
 
 # Function that initializes mage character
 def mage():
+    """
+    This function does not intake parameters, simply
+    returns the string "mage" for validation.
+    """
     return "mage"

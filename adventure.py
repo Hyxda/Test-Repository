@@ -5,11 +5,19 @@ import mage
 
 # Custom sleep function
 def sleep():
+    """
+    This function uses the sleep module to set custom
+    timing to be reused at various times.
+    """
     seconds = 0.5
     time.sleep(seconds)
 
 # Displays game introduction text
 def display_intro():
+    """
+    This function displays a brief introduction of the game
+    to the user & takes no parameters.
+    """
     print(
         """
     \t \t Welcome to Ninjas vs Mages! \n
@@ -20,6 +28,12 @@ def display_intro():
 
 # Gets input from user and saves character selection
 def choose_character():
+    """
+    This function asks the user to input their character selection.
+    If an incorrect option is entered by the user, the function is
+    recalled till the user has chosen either mage or ninja. Character
+    variable is then returned.
+    """
     health = 0
     magic = 0
     stealth = 0
@@ -53,6 +67,11 @@ def choose_character():
 
 # Dice Roll
 def dice_roll():
+    """
+    This function uses the "random" module to represent
+    two six-sided die. The sum of two die is returned in
+    the range of 2 to 12.
+    """
     return random.randint(2, 12)
 
 # Function calls
