@@ -40,9 +40,10 @@ def choose_character():
     intelligence = 0
 
     character = ""
+    
     while character.lower() != "ninja" or character.lower() != "mage":
-        
-        character = input("Who will you join? (Ninja/Mage): ")
+        character = input("Who will you join? (Ninja/Mage): \n> ")
+
         if character.lower() == "ninja":
             health += ninja.ninja_health
             magic += ninja.ninja_magic
@@ -63,6 +64,7 @@ def choose_character():
             print("\nYou have entered an incorrect option, please retry. ")
             choose_character()
             break
+
     return character
 
 # Dice Roll
@@ -80,24 +82,30 @@ def role_check():
     win = False
     roll_check = ""
     while win == False:
-        roll_check = input("\nWould you like to roll the dice? (Y/N)")
+        roll_check = input("\nWould you like to roll the dice? (Y/N) \n> ")
         if roll_check.lower() == "y":
             roll_result = dice_roll()
-            if roll_result <= 5:
-                print("\nCritical Loss! The game will now end.")
+            print("\nYou rolled {}!".format(roll_result))
+            if roll_result <= 4:
+                print("Critical Loss! The game will now end.")
                 break
-            elif roll_result <= 8:
-                print("\nLoss! The game will now end.")
+            elif roll_result <= 7:
+                print("Loss! The game will now end.")
                 break
             elif roll_result <= 10:
                 win = True
-                print("\nWin! Moving on to next challenge.")
+                print("Win! Moving on to next challenge.")
             elif roll_result <= 12:
                 win = True
-                print("\nUltra Win! Moving on to next challenge.")
+                print("Ultra Win! Moving on to next challenge.")
             return roll_result
         elif roll_check.lower() == "n":
-            print("\nThe game will now end. See you next time!")
+            print("The game will now end. See you next time!")
+            break
+        else:
+            print("You have entered an incorrect option, please retry.")
+            role_check()
+            break
 
 # Function calls
 display_intro()
@@ -105,3 +113,4 @@ sleep()
 choose_character()
 sleep()
 role_check()
+
